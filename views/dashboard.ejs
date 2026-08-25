@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rashtriya Rakshak</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#080a0c] text-zinc-300">
+
+    <!-- ================================================= -->
+    <!-- FIXED BACKGROUND                                  -->
+    <!-- ================================================= -->
+
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+
+        <!-- Main orange glow -->
+        <div class="absolute
+                   -top-[350px]
+                   left-1/2
+                   -translate-x-1/2
+                   w-[1000px]
+                   h-[700px]
+                   rounded-full
+                   bg-orange-700/[0.16]
+                   blur-[180px]">
+        </div>
+
+
+        <!-- Secondary orange glow -->
+        <div class="absolute
+                   top-[5%]
+                   right-[5%]
+                   w-[450px]
+                   h-[450px]
+                   rounded-full
+                   bg-orange-500/[0.07]
+                   blur-[160px]">
+        </div>
+
+
+        <!-- Center atmosphere -->
+        <div class="absolute
+                   top-[25%]
+                   left-1/2
+                   -translate-x-1/2
+                   w-[600px]
+                   h-[600px]
+                   rounded-full
+                   bg-orange-600/[0.04]
+                   blur-[160px]">
+        </div>
+
+
+        <!-- Overall radial gradient -->
+        <div class="absolute inset-0
+                   bg-[radial-gradient(circle_at_50%_0%,rgba(180,70,20,0.20),transparent_50%)]">
+        </div>
+
+
+        <!-- Bottom darkness -->
+        <div class="absolute inset-0
+                   bg-[linear-gradient(to_bottom,transparent_30%,rgba(0,0,0,0.50))]">
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- APPLICATION                                      -->
+    <!-- ================================================= -->
+
+    <div class="relative z-10 min-h-screen">
+
+        <div class="w-full max-w-7xl min-h-screen mx-auto flex">
+
+
+            <!-- ================================================= -->
+            <!-- SIDEBAR                                           -->
+            <!-- ================================================= -->
+
+            <aside class="m-4 min-w-max
+           rounded-2xl
+           border border-white/[0.07]
+           
+           backdrop-blur-
+           shadow-lg
+           overflow-hidden">
+
+                <div class="p-4" style="font-family: 'Silkscreen';">
+                    <a href="" class="text-xl flex flex-col">
+                        <span>Rakshak</span>
+                    </a>
+                </div>
+
+
+                <!-- Navigation -->
+                <ul class="p-2">
+
+                    <!-- Overview -->
+                    <li>
+                        <a href="#" class="text-lg flex items-center gap-2
+                                   py-2 px-4 m-1
+                                   rounded-xl
+                                   whitespace-nowrap
+                                   hover:bg-white/[0.06]
+                                   transition-colors">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5 shrink-0">
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0m-9.75 0h9.75" />
+
+                            </svg>
+
+                            Overview
+
+                        </a>
+                    </li>
+
+
+                    <!-- Threat History -->
+                    <li>
+                        <a href="#" class="text-lg flex items-center gap-2
+                                   py-2 px-4 m-1
+                                   rounded-xl
+                                   whitespace-nowrap
+                                   hover:bg-white/[0.06]
+                                   transition-colors">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5 shrink-0">
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m9 12.75 2.25 2.25L15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+
+                            </svg>
+
+                            Threat History
+
+                        </a>
+                    </li>
+
+
+                    <!-- Threat Details -->
+                    <li>
+                        <a href="#" class="text-lg flex items-center gap-2
+                                   py-2 px-4 m-1
+                                   rounded-xl
+                                   whitespace-nowrap
+                                   hover:bg-white/[0.06]
+                                   transition-colors">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5 shrink-0">
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 9v3.75m0-10.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.25-8.25-3.286Zm0 13.036h.008v.008H12v-.008Z" />
+
+                            </svg>
+
+                            Threat Details
+
+                        </a>
+                    </li>
+
+
+                    <!-- Forecast -->
+                    <li>
+                        <a href="#" class="text-lg flex items-center gap-2
+                                   py-2 px-4 m-1
+                                   rounded-xl
+                                   whitespace-nowrap
+                                   hover:bg-white/[0.06]
+                                   transition-colors">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5 shrink-0">
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664.0.414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" />
+
+                            </svg>
+
+                            Forecast
+
+                        </a>
+                    </li>
+
+
+                    <!-- MITRE -->
+                    <li>
+                        <a href="#" class="text-lg flex items-center gap-2
+                                   py-2 px-4 m-1
+                                   rounded-xl
+                                   whitespace-nowrap
+                                   hover:bg-white/[0.06]
+                                   transition-colors">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5 shrink-0">
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+
+                            </svg>
+
+                            MITRE
+
+                        </a>
+                    </li>
+
+
+                    <!-- Alerts -->
+                    <li>
+                        <a href="#" class="text-lg flex items-center gap-2
+                                   py-2 px-4 m-1
+                                   rounded-xl
+                                   whitespace-nowrap
+                                   hover:bg-white/[0.06]
+                                   transition-colors">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5 shrink-0">
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+
+                            </svg>
+
+                            Alerts
+
+                        </a>
+                    </li>
+
+
+                    <!-- Settings -->
+                    <li>
+                        <a href="#" class="text-lg flex items-center gap-2
+                                   py-2 px-4 m-1
+                                   rounded-xl
+                                   whitespace-nowrap
+                                   hover:bg-white/[0.06]
+                                   transition-colors">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="size-5 shrink-0">
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z" />
+
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+
+                            </svg>
+
+                            Settings
+
+                        </a>
+                    </li>
+
+                </ul>
+
+            </aside>
+
+
+            <!-- ================================================= -->
+            <!-- DASHBOARD                                         -->
+            <!-- ================================================= -->
+
+            <main class="flex-1 min-w-0 h-screen overflow-hidden overflow-y-auto scrollbar-hidden no-scrollbar">
+
+                <div class="p-6">
+
+                    <p class="text-sm text-zinc-400">
+                        Security Overview
+                    </p>
+
+                    <h1 class="text-3xl font-semibold tracking-tight mt-1">
+                        Dashboard
+                    </h1>
+
+                    <div class="w-full mt-6 grid grid-cols-3 gap-4">
+                        <div class="p-4 col-span-2 rounded-xl border border-white/[0.07] backdrop-blur-2xl shadow-lg">
+                            <h2 class="text-lg text-zinc-200">Total Threats</h2>
+
+                            <div class="grid grid-cols-3 gap-4 mt-2">
+                                <div class="border border-white/[0.07] rounded-xl p-4 shadow-lg">
+                                    <h3 class="text-sm text-zinc-400">High Risk</h3>
+                                    <span class="text-2xl">01</span>
+                                </div>
+                                <div class="border border-white/[0.07] rounded-xl p-4 shadow-lg">
+                                    <h3 class="text-sm text-zinc-400">Medium Risk</h3>
+                                    <span class="text-2xl">12</span>
+                                </div>
+                                <div class="border border-white/[0.07] rounded-xl p-4 shadow-lg">
+                                    <h3 class="text-sm text-zinc-400">Low Risk</h3>
+                                    <span class="text-2xl">25</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Takes 2 columns (spans across) -->
+                        <div
+                            class=" p-4 rounded-xl border border-white/[0.07] backdrop-blur-2xl shadow-lg flex flex-col justify-between">
+                            <h2>Blocked Threats</h2>
+                            <span class="text-4xl">346</span>
+                            <h3 class="text-sm text-zinc-400"> <span class="text-red-500">23↑</span> vs last week</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-6 mt-4">
+
+
+                        <!-- Threats Over Time -->
+                        <!-- Threats Over Time -->
+                        <div class="xl:col-span-2
+           relative overflow-hidden
+           rounded-2xl
+           border border-white/[0.07]
+           backdrop-blur-2xl
+           p-6
+           shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
+
+                            <!-- subtle orange glow -->
+                            <div class="absolute
+               -top-32
+               left-1/3
+               w-72 h-72
+               rounded-full
+               bg-orange-600/[0.06]
+               blur-[100px]
+               pointer-events-none">
+                            </div>
+
+
+                            <!-- Header -->
+                            <div class="relative z-10 flex items-center justify-between mb-6">
+
+                                <div>
+                                    <h3 class="font-semibold text-zinc-100">
+                                        Threats Over Time
+                                    </h3>
+
+                                    <p class="text-xs text-zinc-500 mt-1">
+                                        Threat activity over the last 7 days
+                                    </p>
+                                </div>
+
+
+                                <select class="bg-white/[0.05]
+                   border border-white/[0.07]
+                   outline-none
+                   text-xs text-zinc-400
+                   rounded-lg
+                   px-3 py-2
+                   hover:bg-white/[0.08]
+                   transition-colors">
+
+                                    <option class="bg-zinc-900">
+                                        Last 7 days
+                                    </option>
+
+                                    <option class="bg-zinc-900">
+                                        Last 30 days
+                                    </option>
+
+                                    <option class="bg-zinc-900">
+                                        Last 90 days
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- Chart -->
+                            <div class="relative z-10 h-[260px]">
+
+                                <!-- Grid -->
+                                <div class="absolute inset-0
+                   flex flex-col
+                   justify-between
+                   pointer-events-none">
+
+                                    <div class="border-t border-white/[0.06]"></div>
+                                    <div class="border-t border-white/[0.06]"></div>
+                                    <div class="border-t border-white/[0.06]"></div>
+                                    <div class="border-t border-white/[0.06]"></div>
+                                    <div class="border-t border-white/[0.06]"></div>
+
+                                </div>
+
+
+                                <!-- SVG -->
+                                <svg class="absolute inset-0
+                   w-full h-full" viewBox="0 0 700 260" preserveAspectRatio="none">
+
+                                    <defs>
+
+                                        <!-- Orange area -->
+                                        <linearGradient id="threatArea" x1="0" y1="0" x2="0" y2="1">
+
+                                            <stop offset="0%" stop-color="#f97316" stop-opacity=".22" />
+
+                                            <stop offset="70%" stop-color="#f97316" stop-opacity=".05" />
+
+                                            <stop offset="100%" stop-color="#f97316" stop-opacity="0" />
+
+                                        </linearGradient>
+
+
+                                        <!-- Orange glow -->
+                                        <filter id="orangeGlow" x="-50%" y="-50%" width="200%" height="200%">
+
+                                            <feGaussianBlur stdDeviation="4" result="blur" />
+
+                                            <feMerge>
+
+                                                <feMergeNode in="blur" />
+
+                                                <feMergeNode in="SourceGraphic" />
+
+                                            </feMerge>
+
+                                        </filter>
+
+                                    </defs>
+
+
+                                    <!-- Area -->
+                                    <path d="M0 210
+                   C80 200 90 170 150 180
+                   C210 190 220 130 280 145
+                   C340 160 360 80 420 105
+                   C480 130 500 65 550 80
+                   C610 95 640 35 700 50
+                   L700 260
+                   L0 260 Z" fill="url(#threatArea)" />
+
+
+                                    <!-- Glow line -->
+                                    <path d="M0 210
+                   C80 200 90 170 150 180
+                   C210 190 220 130 280 145
+                   C340 160 360 80 420 105
+                   C480 130 500 65 550 80
+                   C610 95 640 35 700 50" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"
+                                        filter="url(#orangeGlow)" />
+
+
+                                    <!-- Main line -->
+                                    <path d="M0 210
+                   C80 200 90 170 150 180
+                   C210 190 220 130 280 145
+                   C340 160 360 80 420 105
+                   C480 130 500 65 550 80
+                   C610 95 640 35 700 50" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" />
+
+                                </svg>
+
+
+                                <!-- Labels -->
+                                <div class="absolute
+                   bottom-0 left-0 right-0
+                   flex justify-between
+                   text-[11px] text-zinc-500">
+
+                                    <span>Mon</span>
+                                    <span>Tue</span>
+                                    <span>Wed</span>
+                                    <span>Thu</span>
+                                    <span>Fri</span>
+                                    <span>Sat</span>
+                                    <span>Sun</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                      
+                        <!-- Risk Distribution -->
+                        <div class="relative overflow-hidden
+           rounded-2xl
+           border border-white/[0.07]
+           backdrop-blur-2xl
+           p-6
+           shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
+
+                            <!-- subtle glow -->
+                            <div class="absolute
+               -top-24
+               right-0
+               w-56 h-56
+               rounded-full
+               bg-orange-600/[0.06]
+               blur-[90px]
+               pointer-events-none">
+                            </div>
+
+
+                            <!-- Header -->
+                            <div class="relative z-10">
+
+                                <h3 class="font-semibold text-zinc-100">
+                                    Risk Distribution
+                                </h3>
+
+                                <p class="text-xs text-zinc-500 mt-1">
+                                    Current threat severity
+                                </p>
+
+                            </div>
+
+
+                            <!-- Donut -->
+                            <div class="relative z-10 flex justify-center py-8">
+
+                                <div class="w-40 h-40
+                   rounded-full
+                   relative
+                   flex items-center justify-center" style="
+                background:
+                conic-gradient(
+                    #ef4444 0% 15%,
+                    #f97316 15% 49%,
+                    #22c55e 49% 100%
+                );
+            ">
+
+                                    <!-- Donut center -->
+                                    <div class="w-28 h-28
+                       rounded-full
+                       bg-[#0b0d0f]
+                       border border-white/[0.06]
+                       flex flex-col
+                       items-center
+                       justify-center">
+
+                                        <span class="text-2xl
+                           font-semibold
+                           text-zinc-100">
+
+                                            124
+
+                                        </span>
+
+                                        <span class="text-xs
+                           text-zinc-500">
+
+                                            threats
+
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Legend -->
+                            <div class="relative z-10 space-y-3">
+
+                                <!-- High -->
+                                <div class="flex items-center
+                   justify-between
+                   text-sm">
+
+                                    <div class="flex items-center gap-2">
+
+                                        <span class="w-2.5 h-2.5
+                           rounded-full
+                           bg-red-500
+                           shadow-[0_0_8px_rgba(239,68,68,0.5)]">
+                                        </span>
+
+                                        <span class="text-zinc-400">
+                                            High
+                                        </span>
+
+                                    </div>
+
+                                    <span class="font-medium text-zinc-200">
+                                        18
+                                    </span>
+
+                                </div>
+
+
+                                <!-- Medium -->
+                                <div class="flex items-center
+                   justify-between
+                   text-sm">
+
+                                    <div class="flex items-center gap-2">
+
+                                        <span class="w-2.5 h-2.5
+                           rounded-full
+                           bg-orange-500
+                           shadow-[0_0_8px_rgba(249,115,22,0.5)]">
+                                        </span>
+
+                                        <span class="text-zinc-400">
+                                            Medium
+                                        </span>
+
+                                    </div>
+
+                                    <span class="font-medium text-zinc-200">
+                                        42
+                                    </span>
+
+                                </div>
+
+
+                                <!-- Low -->
+                                <div class="flex items-center
+                   justify-between
+                   text-sm">
+
+                                    <div class="flex items-center gap-2">
+
+                                        <span class="w-2.5 h-2.5
+                           rounded-full
+                           bg-green-500
+                           shadow-[0_0_8px_rgba(34,197,94,0.4)]">
+                                        </span>
+
+                                        <span class="text-zinc-400">
+                                            Low
+                                        </span>
+
+                                    </div>
+
+                                    <span class="font-medium text-zinc-200">
+                                        64
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

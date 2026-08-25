@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Security Dashboard</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: [
+                            '-apple-system',
+                            'BlinkMacSystemFont',
+                            'SF Pro Display',
+                            'SF Pro Text',
+                            'Inter',
+                            'system-ui',
+                            'sans-serif'
+                        ]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#f5f5f7] text-[#1d1d1f] font-sans antialiased">
+
+    <!-- APP -->
+    <div class="min-h-screen flex">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50
+                   w-[250px] bg-white/80 backdrop-blur-xl
+                   border-r border-black/[0.06]
+                   transform -translate-x-full lg:translate-x-0
+                   transition-transform duration-300">
+
+            <div class="h-full flex flex-col px-4 py-6">
+
+                <!-- Logo -->
+                <div class="flex items-center gap-3 px-3 mb-10">
+
+                    <div class="w-9 h-9 rounded-xl bg-black
+                                flex items-center justify-center">
+
+                        <i data-lucide="shield" class="w-5 h-5 text-white">
+                        </i>
+
+                    </div>
+
+                    <div>
+                        <h1 class="font-semibold text-[15px]">
+                            Sentinel
+                        </h1>
+
+                        <p class="text-[11px] text-gray-500">
+                            Security Platform
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Navigation -->
+                <nav class="space-y-1">
+
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5
+                              rounded-xl bg-black text-white
+                              text-sm font-medium">
+
+                        <i data-lucide="layout-dashboard" class="w-[18px] h-[18px]">
+                        </i>
+
+                        Overview
+                    </a>
+
+
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5
+                              rounded-xl text-gray-600
+                              hover:bg-black/[0.05]
+                              transition">
+
+                        <i data-lucide="shield-alert" class="w-[18px] h-[18px]">
+                        </i>
+
+                        Threats
+                    </a>
+
+
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5
+                              rounded-xl text-gray-600
+                              hover:bg-black/[0.05]
+                              transition">
+
+                        <i data-lucide="history" class="w-[18px] h-[18px]">
+                        </i>
+
+                        Threat History
+                    </a>
+
+
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5
+                              rounded-xl text-gray-600
+                              hover:bg-black/[0.05]
+                              transition">
+
+                        <i data-lucide="sparkles" class="w-[18px] h-[18px]">
+                        </i>
+
+                        Attack Forecast
+                    </a>
+
+
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5
+                              rounded-xl text-gray-600
+                              hover:bg-black/[0.05]
+                              transition">
+
+                        <i data-lucide="network" class="w-[18px] h-[18px]">
+                        </i>
+
+                        MITRE Mapping
+                    </a>
+
+
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5
+                              rounded-xl text-gray-600
+                              hover:bg-black/[0.05]
+                              transition">
+
+                        <i data-lucide="bell" class="w-[18px] h-[18px]">
+                        </i>
+
+                        Alerts
+
+                        <span class="ml-auto
+                                     text-[11px]
+                                     bg-black text-white
+                                     px-2 py-0.5 rounded-full">
+                            5
+                        </span>
+
+                    </a>
+
+                </nav>
+
+
+                <!-- Bottom -->
+                <div class="mt-auto space-y-1">
+
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5
+                              rounded-xl text-gray-600
+                              hover:bg-black/[0.05]">
+
+                        <i data-lucide="settings" class="w-[18px] h-[18px]">
+                        </i>
+
+                        Settings
+                    </a>
+
+
+                    <!-- User -->
+                    <div class="mt-5 pt-5
+                                border-t border-black/[0.06]
+                                px-2">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="w-9 h-9 rounded-full
+                                        bg-gray-200
+                                        flex items-center justify-center">
+
+                                <i data-lucide="user" class="w-4 h-4 text-gray-600">
+                                </i>
+
+                            </div>
+
+                            <div class="min-w-0">
+
+                                <p class="text-sm font-medium truncate">
+                                    Admin
+                                </p>
+
+                                <p class="text-xs text-gray-500 truncate">
+                                    Security Administrator
+                                </p>
+
+                            </div>
+
+                            <button class="ml-auto text-gray-400 hover:text-black">
+
+                                <i data-lucide="more-horizontal" class="w-4 h-4">
+                                </i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Mobile Overlay -->
+        <div id="overlay" class="fixed inset-0 z-40 bg-black/20
+                   backdrop-blur-sm hidden lg:hidden">
+        </div>
+
+
+        <!-- ================= MAIN ================= -->
+        <main class="flex-1 min-w-0">
+
+            <!-- TOP NAVBAR -->
+            <header class="h-[72px] bg-white/70 backdrop-blur-xl
+                       border-b border-black/[0.06]
+                       flex items-center justify-between
+                       px-5 lg:px-8 sticky top-0 z-30">
+
+                <div class="flex items-center gap-4">
+
+                    <!-- Mobile menu -->
+                    <button id="menuBtn" class="lg:hidden w-9 h-9
+                               flex items-center justify-center
+                               rounded-xl hover:bg-black/[0.05]">
+
+                        <i data-lucide="menu" class="w-5 h-5">
+                        </i>
+
+                    </button>
+
+
+                    <!-- Search -->
+                    <div class="hidden sm:flex items-center
+                                gap-2 w-[260px]
+                                bg-[#f5f5f7]
+                                rounded-xl px-3 py-2">
+
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400">
+                        </i>
+
+                        <input type="text" placeholder="Search threats..." class="bg-transparent outline-none
+                                   text-sm w-full
+                                   placeholder:text-gray-400">
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex items-center gap-3">
+
+                    <!-- Protection -->
+                    <div class="hidden md:flex items-center gap-2
+                                bg-green-50
+                                text-green-700
+                                px-3 py-2
+                                rounded-full text-xs font-medium">
+
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
+
+                        Protection Active
+                    </div>
+
+
+                    <!-- Notification -->
+                    <button class="relative w-9 h-9
+                               rounded-full
+                               flex items-center justify-center
+                               hover:bg-black/[0.05]">
+
+                        <i data-lucide="bell" class="w-[18px] h-[18px]">
+                        </i>
+
+                        <span class="absolute top-1 right-1
+                                   w-2 h-2 rounded-full
+                                   bg-red-500 border-2 border-white">
+                        </span>
+
+                    </button>
+
+
+                    <!-- Profile -->
+                    <button class="w-9 h-9 rounded-full
+                               bg-black text-white
+                               flex items-center justify-center">
+
+                        <span class="text-xs font-medium">
+                            A
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= CONTENT ================= -->
+            <section class="p-5 lg:p-8 max-w-[1600px] mx-auto">
+
+                <!-- Header -->
+                <div class="mb-8">
+
+                    <p class="text-sm text-gray-500 mb-1">
+                        Monday, August 24
+                    </p>
+
+                    <div class="flex flex-col md:flex-row
+                                md:items-end md:justify-between gap-4">
+
+                        <div>
+
+                            <h2 class="text-3xl lg:text-4xl
+                                       font-semibold tracking-[-0.03em]">
+
+                                Security Overview
+                            </h2>
+
+                            <p class="text-gray-500 mt-2 text-sm">
+                                Here's what's happening across your
+                                security environment.
+                            </p>
+
+                        </div>
+
+
+                        <button class="inline-flex items-center gap-2
+                                   bg-black text-white
+                                   px-4 py-2.5 rounded-full
+                                   text-sm font-medium
+                                   hover:bg-gray-800
+                                   transition">
+
+                            <i data-lucide="plus" class="w-4 h-4">
+                            </i>
+
+                            New Investigation
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= KPI CARDS ================= -->
+                <div class="grid grid-cols-1 sm:grid-cols-2
+                           xl:grid-cols-4 gap-4 mb-6">
+
+
+                    <!-- Total Threats -->
+                    <div class="bg-white rounded-2xl
+                               border border-black/[0.05]
+                               p-5
+                               shadow-[0_2px_10px_rgba(0,0,0,0.03)]
+                               hover:shadow-md transition">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+
+                                <p class="text-sm text-gray-500">
+                                    Total Threats
+                                </p>
+
+                                <h3 class="text-3xl font-semibold
+                                           tracking-tight mt-2">
+                                    124
+                                </h3>
+
+                            </div>
+
+                            <div class="w-10 h-10 rounded-xl
+                                       bg-blue-50
+                                       flex items-center justify-center">
+
+                                <i data-lucide="shield-alert" class="w-5 h-5 text-blue-600">
+                                </i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex items-center gap-1
+                                    mt-4 text-xs">
+
+                            <span class="text-green-600 font-medium">
+                                ↑ 18%
+                            </span>
+
+                            <span class="text-gray-400">
+                                vs last week
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- High Risk -->
+                    <div class="bg-white rounded-2xl
+                               border border-black/[0.05]
+                               p-5
+                               shadow-[0_2px_10px_rgba(0,0,0,0.03)]
+                               hover:shadow-md transition">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+
+                                <p class="text-sm text-gray-500">
+                                    High Risk
+                                </p>
+
+                                <h3 class="text-3xl font-semibold
+                                           tracking-tight mt-2">
+                                    18
+                                </h3>
+
+                            </div>
+
+                            <div class="w-10 h-10 rounded-xl
+                                       bg-red-50
+                                       flex items-center justify-center">
+
+                                <i data-lucide="triangle-alert" class="w-5 h-5 text-red-500">
+                                </i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex items-center gap-1
+                                    mt-4 text-xs">
+
+                            <span class="text-red-500 font-medium">
+                                4 new
+                            </span>
+
+                            <span class="text-gray-400">
+                                today
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Blocked -->
+                    <div class="bg-white rounded-2xl
+                               border border-black/[0.05]
+                               p-5
+                               shadow-[0_2px_10px_rgba(0,0,0,0.03)]
+                               hover:shadow-md transition">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+
+                                <p class="text-sm text-gray-500">
+                                    Blocked Threats
+                                </p>
+
+                                <h3 class="text-3xl font-semibold
+                                           tracking-tight mt-2">
+                                    86
+                                </h3>
+
+                            </div>
+
+                            <div class="w-10 h-10 rounded-xl
+                                       bg-green-50
+                                       flex items-center justify-center">
+
+                                <i data-lucide="shield-check" class="w-5 h-5 text-green-600">
+                                </i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex items-center gap-1
+                                    mt-4 text-xs">
+
+                            <span class="text-green-600 font-medium">
+                                69.4%
+                            </span>
+
+                            <span class="text-gray-400">
+                                protection rate
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Warnings -->
+                    <div class="bg-white rounded-2xl
+                               border border-black/[0.05]
+                               p-5
+                               shadow-[0_2px_10px_rgba(0,0,0,0.03)]
+                               hover:shadow-md transition">
+
+                        <div class="flex justify-between items-start">
+
+                            <div>
+
+                                <p class="text-sm text-gray-500">
+                                    Active Warnings
+                                </p>
+
+                                <h3 class="text-3xl font-semibold
+                                           tracking-tight mt-2">
+                                    12
+                                </h3>
+
+                            </div>
+
+                            <div class="w-10 h-10 rounded-xl
+                                       bg-orange-50
+                                       flex items-center justify-center">
+
+                                <i data-lucide="bell-ring" class="w-5 h-5 text-orange-500">
+                                </i>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex items-center gap-1
+                                    mt-4 text-xs">
+
+                            <span class="text-orange-500 font-medium">
+                                5 critical
+                            </span>
+
+                            <span class="text-gray-400">
+                                require attention
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= CHART AREA ================= -->
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-6">
+
+
+                    <!-- Threats Over Time -->
+                    <div class="xl:col-span-2
+                               bg-white rounded-2xl
+                               border border-black/[0.05]
+                               p-6">
+
+                        <div class="flex items-center
+                                    justify-between mb-6">
+
+                            <div>
+
+                                <h3 class="font-semibold">
+                                    Threats Over Time
+                                </h3>
+
+                                <p class="text-xs text-gray-500 mt-1">
+                                    Threat activity over the last 7 days
+                                </p>
+
+                            </div>
+
+                            <select class="bg-[#f5f5f7]
+                                       border-none outline-none
+                                       text-xs rounded-lg
+                                       px-3 py-2">
+
+                                <option>Last 7 days</option>
+                                <option>Last 30 days</option>
+                                <option>Last 90 days</option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Fake Chart -->
+                        <div class="h-[260px] relative">
+
+                            <!-- Grid -->
+                            <div class="absolute inset-0
+                                       flex flex-col
+                                       justify-between">
+
+                                <div class="border-t border-gray-100"></div>
+                                <div class="border-t border-gray-100"></div>
+                                <div class="border-t border-gray-100"></div>
+                                <div class="border-t border-gray-100"></div>
+                                <div class="border-t border-gray-100"></div>
+
+                            </div>
+
+
+                            <!-- Chart line -->
+                            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 700 260"
+                                preserveAspectRatio="none">
+
+                                <defs>
+
+                                    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+
+                                        <stop offset="0%" stop-color="#0071e3" stop-opacity=".18" />
+
+                                        <stop offset="100%" stop-color="#0071e3" stop-opacity="0" />
+
+                                    </linearGradient>
+
+                                </defs>
+
+
+                                <path d="M0 210
+                                       C80 200 90 170 150 180
+                                       C210 190 220 130 280 145
+                                       C340 160 360 80 420 105
+                                       C480 130 500 65 550 80
+                                       C610 95 640 35 700 50
+                                       L700 260
+                                       L0 260 Z" fill="url(#area)" />
+
+
+                                <path d="M0 210
+                                       C80 200 90 170 150 180
+                                       C210 190 220 130 280 145
+                                       C340 160 360 80 420 105
+                                       C480 130 500 65 550 80
+                                       C610 95 640 35 700 50" fill="none" stroke="#0071e3" stroke-width="3"
+                                    stroke-linecap="round" />
+
+                            </svg>
+
+
+                            <!-- Labels -->
+                            <div class="absolute bottom-0 left-0
+                                       right-0 flex justify-between
+                                       text-[11px] text-gray-400">
+
+                                <span>Mon</span>
+                                <span>Tue</span>
+                                <span>Wed</span>
+                                <span>Thu</span>
+                                <span>Fri</span>
+                                <span>Sat</span>
+                                <span>Sun</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Risk Distribution -->
+                    <div class="bg-white rounded-2xl
+                               border border-black/[0.05]
+                               p-6">
+
+                        <h3 class="font-semibold">
+                            Risk Distribution
+                        </h3>
+
+                        <p class="text-xs text-gray-500 mt-1">
+                            Current threat severity
+                        </p>
+
+
+                        <div class="flex justify-center
+                                   py-8">
+
+                            <div class="w-40 h-40 rounded-full
+                                       relative
+                                       flex items-center justify-center" style="
+                                    background:
+                                    conic-gradient(
+                                    #ff3b30 0% 15%,
+                                    #ff9500 15% 49%,
+                                    #34c759 49% 100%
+                                    );
+                                ">
+
+                                <div class="w-28 h-28
+                                           rounded-full bg-white
+                                           flex flex-col
+                                           items-center
+                                           justify-center">
+
+                                    <span class="text-2xl
+                                                 font-semibold">
+                                        124
+                                    </span>
+
+                                    <span class="text-xs
+                                                 text-gray-500">
+                                        threats
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="space-y-3">
+
+                            <div class="flex items-center
+                                        justify-between text-sm">
+
+                                <div class="flex items-center gap-2">
+
+                                    <span class="w-2.5 h-2.5
+                                                 rounded-full
+                                                 bg-red-500">
+                                    </span>
+
+                                    High
+
+                                </div>
+
+                                <span class="font-medium">
+                                    18
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex items-center
+                                        justify-between text-sm">
+
+                                <div class="flex items-center gap-2">
+
+                                    <span class="w-2.5 h-2.5
+                                                 rounded-full
+                                                 bg-orange-500">
+                                    </span>
+
+                                    Medium
+
+                                </div>
+
+                                <span class="font-medium">
+                                    42
+                                </span>
+
+                            </div>
+
+
+                            <div class="flex items-center
+                                        justify-between text-sm">
+
+                                <div class="flex items-center gap-2">
+
+                                    <span class="w-2.5 h-2.5
+                                                 rounded-full
+                                                 bg-green-500">
+                                    </span>
+
+                                    Low
+
+                                </div>
+
+                                <span class="font-medium">
+                                    64
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RECENT THREATS ================= -->
+                <div class="bg-white rounded-2xl
+                           border border-black/[0.05]
+                           overflow-hidden">
+
+                    <div class="px-6 py-5
+                               flex items-center
+                               justify-between
+                               border-b border-black/[0.05]">
+
+                        <div>
+
+                            <h3 class="font-semibold">
+                                Recent Threats
+                            </h3>
+
+                            <p class="text-xs text-gray-500 mt-1">
+                                Latest security events
+                            </p>
+
+                        </div>
+
+
+                        <button class="text-sm text-blue-600
+                                   font-medium
+                                   hover:text-blue-700">
+
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+
+                        <table class="w-full text-sm">
+
+                            <thead>
+
+                                <tr class="text-xs text-gray-400
+                                           border-b border-black/[0.05]">
+
+                                    <th class="text-left
+                                               font-medium px-6 py-4">
+                                        Threat
+                                    </th>
+
+                                    <th class="text-left
+                                               font-medium px-6 py-4">
+                                        Category
+                                    </th>
+
+                                    <th class="text-left
+                                               font-medium px-6 py-4">
+                                        Risk
+                                    </th>
+
+                                    <th class="text-left
+                                               font-medium px-6 py-4">
+                                        Status
+                                    </th>
+
+                                    <th class="text-right
+                                               font-medium px-6 py-4">
+                                        Time
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <!-- Threat 1 -->
+                                <tr class="border-b border-black/[0.04]
+                                           hover:bg-black/[0.02]">
+
+                                    <td class="px-6 py-4">
+
+                                        <div class="flex items-center gap-3">
+
+                                            <div class="w-9 h-9 rounded-lg
+                                                       bg-red-50
+                                                       flex items-center
+                                                       justify-center">
+
+                                                <i data-lucide="mail-warning" class="w-4 h-4 text-red-500">
+                                                </i>
+
+                                            </div>
+
+                                            <div>
+
+                                                <p class="font-medium">
+                                                    Suspicious Login
+                                                </p>
+
+                                                <p class="text-xs text-gray-400">
+                                                    ID #TH-1024
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4 text-gray-500">
+                                        Credential Theft
+                                    </td>
+
+
+                                    <td class="px-6 py-4">
+
+                                        <span class="inline-flex
+                                                   items-center gap-1.5
+                                                   text-xs font-medium
+                                                   text-red-600">
+
+                                            <span class="w-1.5 h-1.5
+                                                         rounded-full
+                                                         bg-red-500">
+                                            </span>
+
+                                            High
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4">
+
+                                        <span class="px-2.5 py-1
+                                                   rounded-full
+                                                   bg-green-50
+                                                   text-green-700
+                                                   text-xs font-medium">
+
+                                            Blocked
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4
+                                               text-right
+                                               text-gray-400">
+
+                                        2 min ago
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- Threat 2 -->
+                                <tr class="border-b border-black/[0.04]
+                                           hover:bg-black/[0.02]">
+
+                                    <td class="px-6 py-4">
+
+                                        <div class="flex items-center gap-3">
+
+                                            <div class="w-9 h-9 rounded-lg
+                                                       bg-orange-50
+                                                       flex items-center
+                                                       justify-center">
+
+                                                <i data-lucide="globe" class="w-4 h-4 text-orange-500">
+                                                </i>
+
+                                            </div>
+
+                                            <div>
+
+                                                <p class="font-medium">
+                                                    Fake KYC Page
+                                                </p>
+
+                                                <p class="text-xs text-gray-400">
+                                                    ID #TH-1023
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4 text-gray-500">
+                                        Phishing
+                                    </td>
+
+
+                                    <td class="px-6 py-4">
+
+                                        <span class="inline-flex
+                                                   items-center gap-1.5
+                                                   text-xs font-medium
+                                                   text-red-600">
+
+                                            <span class="w-1.5 h-1.5
+                                                         rounded-full
+                                                         bg-red-500">
+                                            </span>
+
+                                            High
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4">
+
+                                        <span class="px-2.5 py-1
+                                                   rounded-full
+                                                   bg-green-50
+                                                   text-green-700
+                                                   text-xs font-medium">
+
+                                            Blocked
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4
+                                               text-right
+                                               text-gray-400">
+
+                                        12 min ago
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- Threat 3 -->
+                                <tr class="hover:bg-black/[0.02]">
+
+                                    <td class="px-6 py-4">
+
+                                        <div class="flex items-center gap-3">
+
+                                            <div class="w-9 h-9 rounded-lg
+                                                       bg-blue-50
+                                                       flex items-center
+                                                       justify-center">
+
+                                                <i data-lucide="link" class="w-4 h-4 text-blue-500">
+                                                </i>
+
+                                            </div>
+
+                                            <div>
+
+                                                <p class="font-medium">
+                                                    Unknown Redirect
+                                                </p>
+
+                                                <p class="text-xs text-gray-400">
+                                                    ID #TH-1022
+                                                </p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4 text-gray-500">
+                                        Malicious URL
+                                    </td>
+
+
+                                    <td class="px-6 py-4">
+
+                                        <span class="inline-flex
+                                                   items-center gap-1.5
+                                                   text-xs font-medium
+                                                   text-orange-600">
+
+                                            <span class="w-1.5 h-1.5
+                                                         rounded-full
+                                                         bg-orange-500">
+                                            </span>
+
+                                            Medium
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4">
+
+                                        <span class="px-2.5 py-1
+                                                   rounded-full
+                                                   bg-orange-50
+                                                   text-orange-700
+                                                   text-xs font-medium">
+
+                                            Warning
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="px-6 py-4
+                                               text-right
+                                               text-gray-400">
+
+                                        24 min ago
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= JS ================= -->
+    <script>
+
+        // Initialize icons
+        lucide.createIcons();
+
+
+        // Mobile sidebar
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+
+        menuBtn.addEventListener('click', () => {
+
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('hidden');
+
+        });
+
+
+        overlay.addEventListener('click', () => {
+
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('hidden');
+
+        });
+
+    </script>
+
+</body>
+
+</html>
