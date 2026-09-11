@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="/style.css">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Silkscreen:wght@400;700&display=swap');
+body{
+    font-family: 'Google Sans';
+}
         /* Hide scrollbar for Chrome, Safari and Opera */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -22,6 +26,35 @@
             /* IE and Edge */
             scrollbar-width: none;
             /* Firefox */
+        }
+
+        /* Mobile sidebar drawer */
+        @media (max-width: 767px) {
+            #sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 260px;
+                z-index: 50;
+                transform: translateX(-110%);
+                transition: transform 0.25s ease;
+                margin: 0 !important;
+                border-radius: 0;
+            }
+            #sidebar.open {
+                transform: translateX(0);
+            }
+            #sidebar-backdrop {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.6);
+                z-index: 40;
+            }
+            #sidebar-backdrop.open {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -36,14 +69,14 @@
 
         <!-- Main orange glow -->
         <div class="absolute
-                   -top-[350px]
+                   -top-[200px] sm:-top-[350px]
                    left-1/2
                    -translate-x-1/2
-                   w-[1000px]
-                   h-[700px]
+                   w-[90vw] max-w-[1000px]
+                   h-[400px] sm:h-[700px]
                    rounded-full
                    bg-orange-700/[0.16]
-                   blur-[180px]">
+                   blur-[100px] sm:blur-[180px]">
         </div>
 
 
@@ -51,11 +84,11 @@
         <div class="absolute
                    top-[5%]
                    right-[5%]
-                   w-[450px]
-                   h-[450px]
+                   w-[220px] sm:w-[450px]
+                   h-[220px] sm:h-[450px]
                    rounded-full
                    bg-orange-500/[0.07]
-                   blur-[160px]">
+                   blur-[90px] sm:blur-[160px]">
         </div>
 
 
@@ -64,11 +97,11 @@
                    top-[25%]
                    left-1/2
                    -translate-x-1/2
-                   w-[600px]
-                   h-[600px]
+                   w-[300px] sm:w-[600px]
+                   h-[300px] sm:h-[600px]
                    rounded-full
                    bg-orange-600/[0.04]
-                   blur-[160px]">
+                   blur-[90px] sm:blur-[160px]">
         </div>
 
 
@@ -92,25 +125,58 @@
 
     <div class="relative z-10 min-h-screen">
 
-        <div class="w-full max-w-7xl min-h-screen mx-auto flex">
+        <div class="w-full max-w-7xl min-h-screen mx-auto flex flex-col md:flex-row">
+
+
+            <!-- Mobile top bar -->
+            <div class="md:hidden flex items-center justify-between p-4">
+                <button id="sidebar-toggle" type="button"
+                    class="p-2 rounded-xl border border-white/[0.07] hover:bg-white/[0.06] transition-colors"
+                    aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+                    </svg>
+                </button>
+
+                <a href="" class="text-lg" style="font-family: 'Silkscreen';">
+                    Rakshak
+                </a>
+
+                <span class="size-6"></span>
+            </div>
+
+            <!-- Backdrop for mobile sidebar -->
+            <div id="sidebar-backdrop"></div>
 
 
             <!-- ================================================= -->
             <!-- SIDEBAR                                           -->
             <!-- ================================================= -->
 
-            <aside class="m-4 min-w-max
+            <aside id="sidebar" class="m-4 md:min-w-max
            rounded-2xl
            border border-white/[0.07]
-           
+           bg-[#0b0d0f] md:bg-transparent
            backdrop-blur-
            shadow-lg
-           overflow-hidden">
+           overflow-hidden
+           overflow-y-auto
+           no-scrollbar">
 
-                <div class="p-4" style="font-family: 'Silkscreen';">
+                <div class="p-4 flex items-center justify-between" style="font-family: 'Silkscreen';">
                     <a href="" class="text-xl flex flex-col">
                         <span>Rakshak</span>
                     </a>
+
+                    <button id="sidebar-close" type="button"
+                        class="md:hidden p-1 rounded-lg hover:bg-white/[0.06] transition-colors"
+                        aria-label="Close menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
 
 
@@ -289,40 +355,40 @@
             <!-- DASHBOARD                                         -->
             <!-- ================================================= -->
 
-            <main class="flex-1 min-w-0 h-screen overflow-hidden overflow-y-auto scrollbar-hidden no-scrollbar">
+            <main class="flex-1 min-w-0 md:h-screen overflow-hidden overflow-y-auto scrollbar-hidden no-scrollbar">
 
-                <div class="p-6">
+                <div class="p-4 sm:p-6">
 
                     <p class="text-sm text-zinc-400">
                         Security Overview
                     </p>
 
-                    <h1 class="text-3xl font-semibold tracking-tight mt-1">
+                    <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight mt-1">
                         Dashboard
                     </h1>
 
-                    <div class="w-full mt-6 grid grid-cols-3 gap-4">
-                        <div class="p-4 col-span-2 rounded-xl border border-white/[0.07] backdrop-blur-2xl shadow-lg">
+                    <div class="w-full mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-4 sm:col-span-2 rounded-xl border border-white/[0.07] backdrop-blur-2xl shadow-lg">
                             <h2 class="text-lg text-zinc-200">Total Threats</h2>
 
-                            <div class="grid grid-cols-3 gap-4 mt-2">
-                                <div class="border border-white/[0.07] rounded-xl p-4 shadow-lg">
-                                    <h3 class="text-sm text-zinc-400">High Risk</h3>
-                                    <span class="text-2xl">01</span>
+                            <div class="grid grid-cols-3 gap-2 sm:gap-4 mt-2">
+                                <div class="border border-white/[0.07] rounded-xl p-3 sm:p-4 shadow-lg">
+                                    <h3 class="text-xs sm:text-sm text-zinc-400">High Risk</h3>
+                                    <span class="text-xl sm:text-2xl">01</span>
                                 </div>
-                                <div class="border border-white/[0.07] rounded-xl p-4 shadow-lg">
-                                    <h3 class="text-sm text-zinc-400">Medium Risk</h3>
-                                    <span class="text-2xl">12</span>
+                                <div class="border border-white/[0.07] rounded-xl p-3 sm:p-4 shadow-lg">
+                                    <h3 class="text-xs sm:text-sm text-zinc-400">Medium Risk</h3>
+                                    <span class="text-xl sm:text-2xl">12</span>
                                 </div>
-                                <div class="border border-white/[0.07] rounded-xl p-4 shadow-lg">
-                                    <h3 class="text-sm text-zinc-400">Low Risk</h3>
-                                    <span class="text-2xl">25</span>
+                                <div class="border border-white/[0.07] rounded-xl p-3 sm:p-4 shadow-lg">
+                                    <h3 class="text-xs sm:text-sm text-zinc-400">Low Risk</h3>
+                                    <span class="text-xl sm:text-2xl">25</span>
                                 </div>
 
                             </div>
                         </div>
 
-                        <!-- Item 2: Takes 2 columns (spans across) -->
+                        <!-- Item 2 -->
                         <div
                             class=" p-4 rounded-xl border border-white/[0.07] backdrop-blur-2xl shadow-lg flex flex-col justify-between">
                             <h2>Blocked Threats</h2>
@@ -336,13 +402,12 @@
 
 
                         <!-- Threats Over Time -->
-                        <!-- Threats Over Time -->
                         <div class="xl:col-span-2
            relative overflow-hidden
            rounded-2xl
            border border-white/[0.07]
            backdrop-blur-2xl
-           p-6
+           p-4 sm:p-6
            shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
 
                             <!-- subtle orange glow -->
@@ -358,7 +423,7 @@
 
 
                             <!-- Header -->
-                            <div class="relative z-10 flex items-center justify-between mb-6">
+                            <div class="relative z-10 flex items-center justify-between mb-6 gap-3">
 
                                 <div>
                                     <h3 class="font-semibold text-zinc-100">
@@ -376,7 +441,8 @@
                    outline-none
                    text-xs text-zinc-400
                    rounded-lg
-                   px-3 py-2
+                   px-2 sm:px-3 py-2
+                   shrink-0
                    hover:bg-white/[0.08]
                    transition-colors">
 
@@ -398,7 +464,7 @@
 
 
                             <!-- Chart -->
-                            <div class="relative z-10 h-[260px]">
+                            <div class="relative z-10 h-[200px] sm:h-[260px]">
 
                                 <!-- Grid -->
                                 <div class="absolute inset-0
@@ -487,7 +553,7 @@
                                 <div class="absolute
                    bottom-0 left-0 right-0
                    flex justify-between
-                   text-[11px] text-zinc-500">
+                   text-[10px] sm:text-[11px] text-zinc-500">
 
                                     <span>Mon</span>
                                     <span>Tue</span>
@@ -510,7 +576,7 @@
            rounded-2xl
            border border-white/[0.07]
            backdrop-blur-2xl
-           p-6
+           p-4 sm:p-6
            shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
 
                             <!-- subtle glow -->
@@ -540,9 +606,9 @@
 
 
                             <!-- Donut -->
-                            <div class="relative z-10 flex justify-center py-8">
+                            <div class="relative z-10 flex justify-center py-6 sm:py-8">
 
-                                <div class="w-40 h-40
+                                <div class="w-32 h-32 sm:w-40 sm:h-40
                    rounded-full
                    relative
                    flex items-center justify-center" style="
@@ -555,7 +621,7 @@
             ">
 
                                     <!-- Donut center -->
-                                    <div class="w-28 h-28
+                                    <div class="w-22 h-22 sm:w-28 sm:h-28
                        rounded-full
                        bg-[#0b0d0f]
                        border border-white/[0.06]
@@ -563,7 +629,7 @@
                        items-center
                        justify-center">
 
-                                        <span class="text-2xl
+                                        <span class="text-xl sm:text-2xl
                            font-semibold
                            text-zinc-100">
 
@@ -678,6 +744,36 @@
         </div>
 
     </div>
+
+    <script>
+        (function () {
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            const openBtn = document.getElementById('sidebar-toggle');
+            const closeBtn = document.getElementById('sidebar-close');
+
+            function openSidebar() {
+                sidebar.classList.add('open');
+                backdrop.classList.add('open');
+            }
+
+            function closeSidebar() {
+                sidebar.classList.remove('open');
+                backdrop.classList.remove('open');
+            }
+
+            openBtn.addEventListener('click', openSidebar);
+            closeBtn.addEventListener('click', closeSidebar);
+            backdrop.addEventListener('click', closeSidebar);
+
+            // Close drawer automatically if resized up to desktop width
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 768) {
+                    closeSidebar();
+                }
+            });
+        })();
+    </script>
 
 </body>
 
